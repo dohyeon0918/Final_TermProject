@@ -50,6 +50,8 @@ public class ProductEditController extends HttpServlet {
         String description = multi.getParameter("description");
         int price = Integer.parseInt(multi.getParameter("price"));
         String image = multi.getFilesystemName("imageFile");
+        String category = multi.getParameter("category");
+        String location = multi.getParameter("location");
         
         if (image == null) {
             // 기존 이미지 유지
@@ -59,10 +61,10 @@ public class ProductEditController extends HttpServlet {
         
         Member login = (Member) request.getSession().getAttribute("loginMember");
         String sellerId = login.getId();
-
+        
        
         ProductDAO dao = new ProductDAO();
-        boolean result = dao.updateProduct(new Product(productId, title, description, price, sellerId, image));
+        boolean result = dao.updateProduct(new Product(productId, title, category, description, price, sellerId, image , location));
 
         if (result) {
             response.sendRedirect("detail.do?productId=" + productId);

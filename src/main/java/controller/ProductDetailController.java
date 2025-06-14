@@ -2,8 +2,11 @@ package controller;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
+import java.util.List;
 import model.Product;
 import model.ProductDAO;
+import model.Comment;
+import model.CommentDAO;
 
 import java.io.IOException;
 
@@ -20,6 +23,10 @@ public class ProductDetailController extends HttpServlet {
             response.sendRedirect("/views/common/error.jsp");
             return;
         }
+        
+        CommentDAO commentDao = new CommentDAO();
+        List<Comment> commentList = commentDao.getCommentsByProductId(productId);
+        request.setAttribute("commentList", commentList);
 
         request.setAttribute("product", product);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/views/product/productDetail.jsp");

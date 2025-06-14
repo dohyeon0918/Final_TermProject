@@ -89,5 +89,141 @@
     <servlet-name>ProductDeleteController</servlet-name>
     <url-pattern>/product/delete.do</url-pattern>
 </servlet-mapping>
+	<!-- 마이페이지 컨트롤러 -->
+<servlet>
+  <servlet-name>MyPageController</servlet-name>
+  <servlet-class>controller.MyPageController</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>MyPageController</servlet-name>
+  <url-pattern>/mypage.do</url-pattern>
+</servlet-mapping>
+<!-- 상품 검색 컨트롤러 -->
+<servlet>
+  <servlet-name>ProductSearchByName</servlet-name>
+  <servlet-class>controller.ProductSearchByNameController</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>ProductSearchByName</servlet-name>
+  <url-pattern>/product/searchName.do</url-pattern>
+</servlet-mapping>
+<!-- 장바구니 추가 컨트롤러 -->
+<servlet>
+    <servlet-name>CartAdd</servlet-name>
+    <servlet-class>controller.CartAddController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartAdd</servlet-name>
+    <url-pattern>/cart/add</url-pattern>
+  </servlet-mapping>
+
+<!-- 장바구니 화면 컨트롤러 -->
+  <servlet>
+    <servlet-name>CartView</servlet-name>
+    <servlet-class>controller.CartViewController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartView</servlet-name>
+    <url-pattern>/cart/view</url-pattern>
+  </servlet-mapping>
+
+<!-- 장바구니 삭제 컨트롤러 -->
+  <servlet>
+    <servlet-name>CartRemove</servlet-name>
+    <servlet-class>controller.CartRemoveController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartRemove</servlet-name>
+    <url-pattern>/cart/remove</url-pattern>
+  </servlet-mapping>
+
+<!-- 장바구니 전체삭제 컨트롤러 -->
+  <servlet>
+    <servlet-name>CartClear</servlet-name>
+    <servlet-class>controller.CartClearController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartClear</servlet-name>
+    <url-pattern>/cart/clear</url-pattern>
+  </servlet-mapping>
+<!-- 배송 정보 컨트롤러 -->
+  <servlet>
+    <servlet-name>ShippingInfo</servlet-name>
+    <servlet-class>controller.ShippingInfoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShippingInfo</servlet-name>
+    <url-pattern>/checkout/shipping</url-pattern>
+  </servlet-mapping>
+<!-- 배송 정보 입력 컨트롤러 -->
+  <servlet>
+    <servlet-name>ProcessShipping</servlet-name>
+    <servlet-class>controller.ProcessShippingInfoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProcessShipping</servlet-name>
+    <url-pattern>/checkout/processShipping</url-pattern>
+  </servlet-mapping>
+<!-- 영수증 컨트롤러 -->
+  <servlet>
+    <servlet-name>OrderConfirm</servlet-name>
+    <servlet-class>controller.OrderConfirmationController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderConfirm</servlet-name>
+    <url-pattern>/checkout/confirm</url-pattern>
+  </servlet-mapping>
+<!-- 주문 완료 컨트롤러 -->
+  <servlet>
+    <servlet-name>ThankCustomer</servlet-name>
+    <servlet-class>controller.ThankCustomerController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ThankCustomer</servlet-name>
+    <url-pattern>/checkout/thank</url-pattern>
+  </servlet-mapping>
+<!-- 주문 취소 컨트롤러 -->
+  <servlet>
+    <servlet-name>CancelCheckout</servlet-name>
+    <servlet-class>controller.CancelCheckoutController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancelCheckout</servlet-name>
+    <url-pattern>/checkout/cancel</url-pattern>
+  </servlet-mapping>
+<!-- 댓글 추가 컨트롤러 -->
+  <servlet>
+    <servlet-name>CommentAddController</servlet-name>
+    <servlet-class>controller.CommentAddController</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>CommentAddController</servlet-name>
+    <url-pattern>/comment/add.do</url-pattern>
+</servlet-mapping>
+ 
+ <!-- 댓글 삭제 컨트롤러 -->
+ <servlet>
+    <servlet-name>CommentDeleteController</servlet-name>
+    <servlet-class>controller.CommentDeleteController</servlet-class>
+</servlet>
+<servlet-mapping>
+    <servlet-name>CommentDeleteController</servlet-name>
+    <url-pattern>/comment/delete.do</url-pattern>
+</servlet-mapping> 
+ 
+<!-- 필터 -->
+  <filter>
+    <filter-name>LogFileFilter</filter-name>
+    <filter-class>filter.LogFileFilter</filter-class>
+    <init-param>
+        <param-name>filename</param-name>
+        <param-value>C:\\logs\\projectlog.log</param-value>
+    </init-param>
+</filter>
+
+<filter-mapping>
+    <filter-name>LogFileFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+</filter-mapping>
 
 </web-app>

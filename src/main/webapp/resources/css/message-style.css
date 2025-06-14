@@ -1,0 +1,35 @@
+/* message-style.css */
+
+.message-box {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border: 2px solid #66bb6a;
+  border-radius: 8px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #111;
+}
+.message-box h2 {
+  margin-bottom: 1rem;
+  color: #43a047;
+}
+.message-box p {
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+}
+.message-box a {
+  display: inline-block;
+  margin: 0.3rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #66bb6a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+}
+.message-box a:hover {
+  background-color: #43a047;
+}

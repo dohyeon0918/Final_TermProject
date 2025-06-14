@@ -3,22 +3,34 @@
 
 <html>
 <head>
-  <title>상품 목록</title>
+  <title>상품 검색 결과</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/product-style.css" />
+  <style>
+    table.board {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5rem;
+    }
+    table.board th, table.board td {
+      border-bottom: 1px solid #ddd;
+      padding: 0.75rem;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    table.board th {
+      background-color: #f7f7f7;
+      color: #444;
+    }
+    table.board td.title {
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
 <jsp:include page="/views/common/header.jsp" />
 
 <div class="product-container">
-  <h2>상품 목록</h2>
-
-  <div class="category-list">
-    <a href="${pageContext.request.contextPath}/product/list.do" class="category-item">전체</a>
-    <a href="${pageContext.request.contextPath}/product/list.do?category=전자제품" class="category-item">전자제품</a>
-    <a href="${pageContext.request.contextPath}/product/list.do?category=의류" class="category-item">의류</a>
-    <a href="${pageContext.request.contextPath}/product/list.do?category=도서" class="category-item">도서</a>
-    <a href="${pageContext.request.contextPath}/product/list.do?category=기타" class="category-item">기타</a>
-  </div>
+  <h2>상품 검색 결과</h2>
 
   <table class="board">
     <thead>
@@ -45,14 +57,10 @@
         </tr>
       </c:forEach>
       <c:if test="${empty productList}">
-        <tr><td colspan="5">등록된 상품이 없습니다.</td></tr>
+        <tr><td colspan="5">검색 결과가 없습니다.</td></tr>
       </c:if>
     </tbody>
   </table>
-
-  <div style="text-align: right; margin-top: 1rem;">
-    <a href="${pageContext.request.contextPath}/views/product/productAdd.jsp" class="btn">상품 등록</a>
-  </div>
 </div>
 
 <jsp:include page="/views/common/footer.jsp" />

@@ -31,23 +31,23 @@ public class ProductAddController extends HttpServlet {
 
         MultipartRequest multi = new MultipartRequest(
             request, savePath, maxSize, "UTF-8", new DefaultFileRenamePolicy());
-        
         // 폼 데이터 추출
         String title = multi.getParameter("title");
         String description = multi.getParameter("description");
         int price = Integer.parseInt(multi.getParameter("price"));
         String image = multi.getFilesystemName("imageFile"); 
-        
+        String category = multi.getParameter("category");
         Member loginMember = (Member) request.getSession().getAttribute("loginMember");
+        String location = multi.getParameter("location");
         String sellerId = loginMember.getId();
         
        
-        Product product = new Product(0, title, description, price, sellerId, image);
+        Product product = new Product(0, title, category, description, price, sellerId, image,location);
 
         // DB에 등록
         ProductDAO dao = new ProductDAO();
         boolean result = dao.insertProduct(product);
-
+        
         if (result) {
             response.sendRedirect(request.getContextPath()  +"/product/list.do");
         } else {
